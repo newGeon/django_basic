@@ -25,3 +25,15 @@ class Position(models.Model):
     photo = models.ForeignKey('Photo', on_delete=models.CASCADE)
     coordinate_x = models.FloatField()
     coordinate_y = models.FloatField()
+
+class User(models.Model):
+    user_id = models.CharField(max_length=20)
+    user_name = models.CharField(max_length=50)
+    password = models.CharField(max_length=20)
+    user_status = models.CharField(max_length=10)
+    user_roles = models.CharField(max_length=10)
+    create_date = models.DateTimeField(default=timezone.now)
+    update_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        db_table = "user_info"
